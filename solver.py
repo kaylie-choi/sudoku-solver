@@ -1,3 +1,5 @@
+from time import sleep
+
 board = [
     [7,8,0,4,0,0,1,2,0],
     [6,0,0,0,7,5,0,0,9],
@@ -10,11 +12,24 @@ board = [
     [0,4,9,2,0,6,0,0,7]
 ]
 
+count = 0
+
 # algo to use fns and backtrack
 def solve(grid):
+
+    # counter to track iterations and visualize backtracking
+    global count
+    count += 1
+    sleep(0.05)
+    print('\nIteration: ' + str(count))
+    print_sudoku(grid)
+
     # base case of recursion: board is full, that solution is found
     find = find_empty(grid)
     if not find:
+        print("---------------------- ")
+        print("  ^ Sudoku Solved ^")
+        print("---------------------- ")
         return True
     else: 
         row, col = find
@@ -98,8 +113,6 @@ def find_empty(grid):
     return None
 
 
-
-print_sudoku(board)
+# print_sudoku(board)
 solve(board)
-print("--------solved-----------")
-print_sudoku(board)
+# print_sudoku(board)
