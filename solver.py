@@ -71,12 +71,12 @@ def valid(grid, num, pos):
 
     # check 3x3 square
     # determine which box we're in with integer (floor) division, will return 0 1 or 2
-    box_y = pos[0] // 3
-    box_x = pos[1] // 3
+    box_row = pos[0] // 3
+    box_col = pos[1] // 3
 
     # now that we know what box we're in, loop through 9 elements of the box
-    for i in range(box_y * 3, box_y * 3 + 3):
-        for j in range(box_x * 3, box_x * 3 + 3):
+    for i in range(box_row * 3, box_row * 3 + 3):
+        for j in range(box_col * 3, box_col * 3 + 3):
             if grid[i][j] == num and (i, j) != pos:
                 return False
 
